@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { responseService } from "./responseService";
-import { mockExpressResponse } from "../__test__/mockExpressResponse";
+import { getMockRes } from "vitest-mock-express";
 
 describe("responseService", () => {
   const mockBody = {
@@ -9,65 +9,65 @@ describe("responseService", () => {
 
   it("should return 200 response from 'ok'", async () => {
     // given
-    const expressResponse = mockExpressResponse();
+    const { res } = getMockRes();
 
     // when
-    responseService.ok(expressResponse);
+    responseService.ok(res as any);
 
     // then
-    expect(expressResponse.status).toHaveBeenCalledWith(200);
-    expect(expressResponse.json).toHaveBeenCalledWith({});
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.json).toHaveBeenCalledWith({});
   });
 
   it("should return 200 response with body from 'ok'", async () => {
     // given
-    const expressResponse = mockExpressResponse();
+    const { res } = getMockRes();
 
     // when
-    responseService.ok(expressResponse, mockBody);
+    responseService.ok(res as any, mockBody);
 
     // then
-    expect(expressResponse.status).toHaveBeenCalledWith(200);
-    expect(expressResponse.json).toHaveBeenCalledWith(mockBody);
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.json).toHaveBeenCalledWith(mockBody);
   });
 
   it("should return 404 response from 'notFound'", async () => {
     // given
-    const expressResponse = mockExpressResponse();
+    const { res } = getMockRes();
 
     // when
-    responseService.notFound(expressResponse);
+    responseService.notFound(res as any);
 
     // then
-    expect(expressResponse.status).toHaveBeenCalledWith(404);
-    expect(expressResponse.json).toHaveBeenCalledWith({
+    expect(res.status).toHaveBeenCalledWith(404);
+    expect(res.json).toHaveBeenCalledWith({
       message: "Not found",
     });
   });
 
   it("should return 500 response from 'internalServerError'", async () => {
     // given
-    const expressResponse = mockExpressResponse();
+    const { res } = getMockRes();
 
     // when
-    responseService.internalServerError(expressResponse);
+    responseService.internalServerError(res as any);
 
     // then
-    expect(expressResponse.status).toHaveBeenCalledWith(500);
-    expect(expressResponse.json).toHaveBeenCalledWith({
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.json).toHaveBeenCalledWith({
       message: "Something went wrong",
     });
   });
   it("should return 500 response with body from 'internalServerError'", async () => {
     // given
-    const expressResponse = mockExpressResponse();
+    const { res } = getMockRes();
 
     // when
-    responseService.internalServerError(expressResponse, mockBody);
+    responseService.internalServerError(res, mockBody);
 
     // then
-    expect(expressResponse.status).toHaveBeenCalledWith(500);
-    expect(expressResponse.json).toHaveBeenCalledWith({
+    expect(res.status).toHaveBeenCalledWith(500);
+    expect(res.json).toHaveBeenCalledWith({
       message: "Something went wrong",
       ...mockBody,
     });
