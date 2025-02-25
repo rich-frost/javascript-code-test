@@ -8,4 +8,6 @@ export default [
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
+  { ignores: ["coverage", "__original__"] },
+  { rules: { "@typescript-eslint/no-explicit-any": "off" } },
 ];
