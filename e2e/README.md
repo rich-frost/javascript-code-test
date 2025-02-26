@@ -1,12 +1,24 @@
 # e2e tests
 
-This directory contains all the e2e tests for this API. It's purposely under a separate subfolder so that we don't import any types from the application, and we run tests purely as an end user hitting an API endpoint.
+This directory contains all the e2e tests for this API. It's purposely under a separate sub-folder so we run tests purely as an end user hitting an API endpoint.
 
 ## Getting started
 
-- `npm install`
-- `cp .env.template .env`
+```bash
+npm install
+```
 
 ## Usage
 
-- `npm run test`
+Make sure you have the app running locally in the root directory with:
+
+```bash
+npm run dev
+```
+
+Then run the end to end tests in this folder:
+
+```bash
+cd e2e/
+npm run test
+```

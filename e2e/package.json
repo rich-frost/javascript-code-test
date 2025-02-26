@@ -5,14 +5,12 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "dotenv -- vitest"
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "dotenv": "^16.4.7",
-    "typescript": "^5.7.3",
     "vitest": "^3.0.7"
   }
 }
