@@ -4,7 +4,9 @@ import { ResponseWithLocals } from "../types/express";
 
 export const mockExpressResponse = (): ResponseWithLocals => {
   const { res } = getMockRes({
-    locals: { logger: { trace: vitest.fn(), warn: vitest.fn() } },
+    locals: {
+      logger: { error: vitest.fn(), trace: vitest.fn(), warn: vitest.fn() },
+    },
   });
 
   return res as any;

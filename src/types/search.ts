@@ -13,8 +13,8 @@ export type SearchAdapterProps = {
 export type SearchResult = {
   title: string;
   author: string;
-  publish_date: string;
-  publisher: string;
+  publish_date?: string;
+  publisher?: string;
 };
 
 export type SearchResults = SearchResult[];
