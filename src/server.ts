@@ -6,9 +6,13 @@ import { API_VERSION } from "./constants/api";
 import { router } from "./routes";
 import { SWAGGER_OPTIONS } from "./constants/swagger";
 
-import { traceRequest } from "./lib/traceRequest";
+import { traceRequest } from "./middleware/traceRequest";
+import { setupMockExternalAPI } from "./__mock__/mockExternalApis";
 
 export const runServer = () => {
+  //TODO: Remove hack to external APIs
+  setupMockExternalAPI();
+
   const app = express();
 
   // Secure app with Helmet: https://github.com/helmetjs/helmet

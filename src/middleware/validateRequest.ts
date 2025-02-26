@@ -1,7 +1,7 @@
 import { NextFunction, Request } from "express";
 import { ValidationChain, validationResult } from "express-validator";
 import { ResponseWithLocals } from "../types/express";
-import { responseService } from "./responseService";
+import { responseService } from "../lib/responseService";
 
 export const createValidateRequest = () => {
   return (validations: ValidationChain[]) =>

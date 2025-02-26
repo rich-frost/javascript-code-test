@@ -1,7 +1,6 @@
 import { createValidateRequest } from "./validateRequest";
 import { mockExpressResponse } from "../__test__/mockExpressResponse";
-import { afterEach, describe, expect, it, vi, vitest, Mock } from "vitest";
-import { validationResult } from "express-validator";
+import { afterEach, describe, expect, it, vi, vitest } from "vitest";
 
 describe("validateRequest", () => {
   afterEach(() => {

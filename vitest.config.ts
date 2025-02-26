@@ -4,7 +4,7 @@ import {
   coverageConfigDefaults,
 } from "vitest/config";
 
-const excludedFolders = ["__original__/*", "src/__test__/*"];
+const excludedFolders = ["__original__/*", "e2e/*", "src/__test__/*"];
 export default defineConfig({
   test: {
     exclude: [...configDefaults.exclude, ...excludedFolders],

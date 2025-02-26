@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { v4 as uuidV4 } from "uuid";
-import { initLogger } from "./logger";
+import { initLogger } from "../lib/logger";
 
 export const traceRequest = (
   req: Request,
