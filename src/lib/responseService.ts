@@ -25,6 +25,19 @@ export const createResponseService = () => {
       });
     },
 
+    badRequest: (res: ResponseWithLocals, body?: { [key: string]: any }) => {
+      res.locals.logger.trace({
+        message: `END OF REQUEST ${res.locals.requestId}`,
+        statusCode: 400,
+        body,
+      });
+
+      return res.status(400).json({
+        message: "Bad request",
+        ...body,
+      });
+    },
+
     internalServerError: (
       res: ResponseWithLocals,
       body?: { [key: string]: any },
