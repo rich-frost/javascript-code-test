@@ -10,7 +10,7 @@ import { traceRequest } from "./middleware/traceRequest";
 import { setupMockExternalAPI } from "./__mock__/mockExternalApis";
 
 export const runServer = () => {
-  //TODO: Remove hack to external APIs
+  // TODO: Remove hack to external APIs
   setupMockExternalAPI();
 
   const app = express();

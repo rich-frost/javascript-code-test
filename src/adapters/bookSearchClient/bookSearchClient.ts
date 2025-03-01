@@ -34,6 +34,8 @@ export const bookSearchClient = async ({
 
   const data = await response.json();
 
+  // TODO: Possibly add a type guard checker here prior to attempting to parse the data
+
   // Parse response into standard format
   logger.trace({ message: `Parsing returned books into standard format` });
   try {

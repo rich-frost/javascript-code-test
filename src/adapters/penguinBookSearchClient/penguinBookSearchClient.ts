@@ -10,7 +10,7 @@ export const penguinBookSearchClient = async ({
   logger,
 }: SearchAdapterProps) => {
   logger.trace({
-    message: `TODO: Implement Penguin Books Search Client ${searchParams}`,
+    message: `! TODO: Implement Penguin Books Search Client ${searchParams}`,
   });
 
   return [];

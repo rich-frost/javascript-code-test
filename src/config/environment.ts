@@ -1,5 +1,5 @@
 export const getEnvironment = () => {
-  //TODO: Add API Key to this config
+  // TODO: Add API Key to this config
   if (!process.env.BOOK_SEARCH_CLIENT_BASE_URL) {
     console.error({
       message: "FATAL: Invalid config provided",

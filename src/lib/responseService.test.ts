@@ -31,6 +31,20 @@ describe("responseService", () => {
     expect(expressResponse.json).toHaveBeenCalledWith(mockBody);
   });
 
+  it("should return 400 response from 'badRequest'", async () => {
+    // given
+    const expressResponse = mockExpressResponse();
+
+    // when
+    responseService.badRequest(expressResponse);
+
+    // then
+    expect(expressResponse.status).toHaveBeenCalledWith(400);
+    expect(expressResponse.json).toHaveBeenCalledWith({
+      message: "Bad request",
+    });
+  });
+
   it("should return 404 response from 'notFound'", async () => {
     // given
     const expressResponse = mockExpressResponse();

@@ -1,6 +1,6 @@
 import express from "express";
 import { healthcheckHandler } from "./handlers/healthcheck";
-import { searchHandler } from "./handlers/search";
+import { getSearchHandler } from "./handlers/search";
 
 import { query } from "express-validator";
 import { PAGINATION_LIMITS } from "./constants/searchParameters";
@@ -82,5 +82,5 @@ router.get(
     query("limit").exists().isIn(PAGINATION_LIMITS),
     query("offset").exists(),
   ]),
-  searchHandler,
+  getSearchHandler,
 );

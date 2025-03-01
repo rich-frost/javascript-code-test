@@ -5,6 +5,7 @@ import { SearchResults } from "../../types/search";
 
 describe("bookClientParser", () => {
   it("should correctly parse book search results", () => {
+    // when
     const input: BookClientSearchBooks = [
       {
         name: "The Great Gatsby",
@@ -35,6 +36,7 @@ describe("bookClientParser", () => {
       },
     ];
 
+    // then
     expect(bookClientParser(input)).toEqual(expectedOutput);
   });
 
@@ -43,6 +45,7 @@ describe("bookClientParser", () => {
   });
 
   it("should handle missing fields gracefully", () => {
+    // when
     const input: BookClientSearchBooks = [
       {
         name: "1984",
@@ -61,6 +64,7 @@ describe("bookClientParser", () => {
       },
     ];
 
+    // then
     expect(bookClientParser(input)).toEqual(expectedOutput);
   });
 });
