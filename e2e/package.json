@@ -1,0 +1,16 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "e2e tests for Book Search API",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^3.0.7"
+  }
+}

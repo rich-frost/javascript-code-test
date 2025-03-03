@@ -1,0 +1,21 @@
+import {
+  configDefaults,
+  defineConfig,
+  coverageConfigDefaults,
+} from "vitest/config";
+
+const excludedFolders = [
+  "example-client.js",
+  "__original__/*",
+  "e2e/*",
+  "src/__test__/*",
+  "src/__mock__/*",
+];
+export default defineConfig({
+  test: {
+    exclude: [...configDefaults.exclude, ...excludedFolders],
+    coverage: {
+      exclude: [...coverageConfigDefaults.exclude, ...excludedFolders],
+    },
+  },
+});

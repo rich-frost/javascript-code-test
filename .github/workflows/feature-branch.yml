@@ -1,0 +1,38 @@
+name: feature-branch-workflow
+
+on:
+  push:
+    branches:
+      - "!main"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    name: Code quality checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: npm-
+
+      - name: NPM Install
+        run: npm ci --cache ~/.npm --prefer-offline
+
+      - name: Run Linter
+        run: npm run lint
+
+      - name: Run Tests
+        run: npm run test
+
+      - name: Run Coverage
+        run: npm run coverage
