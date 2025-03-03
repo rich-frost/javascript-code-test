@@ -7,7 +7,8 @@
     "dev": "dotenv -- nodemon --prefer-ts-exts src/server.ts",
     "test": "dotenv -- vitest",
     "coverage": "dotenv -- vitest run --coverage",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test-script": "node ./example-client.mjs"
   },
   "repository": {
     "type": "git",

@@ -5,6 +5,7 @@ import {
 } from "vitest/config";
 
 const excludedFolders = [
+  "example-client.js",
   "__original__/*",
   "e2e/*",
   "src/__test__/*",

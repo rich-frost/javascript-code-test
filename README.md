@@ -10,7 +10,7 @@ Node 20
 
 ### Setup the application
 
-```bash
+```shell
 nvm use
 npm install
 cp .env.template .env # Copy the template file and set the variables
@@ -18,7 +18,7 @@ cp .env.template .env # Copy the template file and set the variables
 
 ### Run the application
 
-```bash
+```shell
 npm run dev
 ```
 
@@ -28,23 +28,26 @@ You can also hit the /search endpoint directly with: http://localhost:3080/v1/se
 
 ### Run the code quality tools
 
-```bash
+```shell
 npm run lint # Check the codebase is linted correctly
 npm run test # Run the unit tests
 npm run coverage # Run the test coverage report
 ```
 
-### example-client.js
+### example-client.mjs (changed to mjs from js)
 
-I modified [example-client.js](./example-client.js) to use the new project setup. Make sure the application isn't running on port 3080; then run the following in your terminal:
+I modified [example-client.mjs](./example-client.mjs) to use the new project setup. Make sure the application isn't running on port 3080; then run the following in your terminal:
 
-```bash
-node ./example-client.js
+```shell
+node ./example-client.mjs
+
+# OR
+npm run test-script
 ```
 
 It will start up the server, and make a request to the paginated /search endpoint. The output should look something like:
 
-```bash
+```shell
 ❯ node ./example-client.js
 Starting development server...
 Attempting to fetch data (try 1/10)...
@@ -154,7 +157,7 @@ If you created a new adapter to access a new API, another parser would likely be
 
 In the current scenario; more query parameters could be added to the `GET` request as required wihout making a breaking change. This woud also allow for combining the filters to narrow down searches for the consumer. It would be easy to add `publisher` for example i.e.:
 
-```bash
+```shell
 ?author=frank&publisher=penguin
 ```
 
@@ -162,7 +165,7 @@ In the current scenario; more query parameters could be added to the `GET` reque
 
 There is admittedly not full test coverage in this demo API, so further tests are required to cover all parts of the system. The current unit tests can be run with the following commands:
 
-```bash
+```shell
 npm run test # Run the unit tests
 npm run coverage # Run the test coverage report
 ```

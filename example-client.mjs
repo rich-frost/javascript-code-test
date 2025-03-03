@@ -1,4 +1,4 @@
-const { exec } = require("child_process");
+import { exec } from "child_process";
 
 const SERVER_URL =
   "http://localhost:3080/v1/search?author=frank&offset=0&limit=10";
@@ -23,6 +23,7 @@ const waitForServer = async (url, retries = 10, delay = 3000) => {
       return;
     } catch (error) {
       console.log("Server not ready, retrying in 3s...");
+      console.warn(error);
       await new Promise((resolve) => setTimeout(resolve, delay));
     }
   }
