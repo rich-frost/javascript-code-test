@@ -16,6 +16,15 @@ npm install
 cp .env.template .env # Copy the template file and set the variables
 ```
 
+Your `.env` file should look like this:
+
+```bash
+# Log level for Pino
+PINO_LOG_LEVEL=trace
+
+BOOK_SEARCH_CLIENT_BASE_URL=http://api.book-seller-example.com
+```
+
 ### Run the application
 
 ```shell
